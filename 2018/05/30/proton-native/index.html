@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Build the GUI with proton react-nativ | Eric Hao&#39;s Blog on github</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Create native desktop application through a react-native platform backgroundBuild the desktop applicaiton based on the node.js platform have some library we can use, the electron is the pioneer and At">
+<meta name="keywords" content="nodejs gui proton react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Build the GUI with proton react-nativ">
+<meta property="og:url" content="http://hhao99.github.io/2018/05/30/proton-native/index.html">
+<meta property="og:site_name" content="Eric Hao&#39;s Blog on github">
+<meta property="og:description" content="Create native desktop application through a react-native platform backgroundBuild the desktop applicaiton based on the node.js platform have some library we can use, the electron is the pioneer and At">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-30T02:26:53.658Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Build the GUI with proton react-nativ">
+<meta name="twitter:description" content="Create native desktop application through a react-native platform backgroundBuild the desktop applicaiton based on the node.js platform have some library we can use, the electron is the pioneer and At">
+  
+    <link rel="alternate" href="/atom.xml" title="Eric Hao&#39;s Blog on github" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Eric Hao&#39;s Blog on github</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hhao99.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-proton-native" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/30/proton-native/" class="article-date">
+  <time datetime="2018-05-30T02:15:01.000Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Build the GUI with proton react-nativ
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Create native desktop application through a react-native platform</p>
+<h1 id="background"><a href="#background" class="headerlink" title="background"></a>background</h1><p>Build the desktop applicaiton based on the node.js platform have some library we can use, the electron is the pioneer and Atom and Visual Studio Code are the good example, but the electron based application is not friendly for the mini-apps, and react-native is the good choice for the universal application interface for the web, mobile and DESKTOP.</p>
+<p>Proton-Native is the library to build the desktop application based on the react-native library and libui, can build the same GUI application to support the Windows, Linux and OSX, same code logic, same development lifecyle and deployment to different user inferface platform.</p>
+<h1 id="Get-started"><a href="#Get-started" class="headerlink" title="Get started"></a>Get started</h1><p><a href="https://proton-native.js.org" target="_blank" rel="noopener">proton-native document</a><br><a href="https://github.com/kusti8/proton-native" target="_blank" rel="noopener">proton-native github</a><br><a href="https://github.com/kusti8/progon-native/examples/" target="_blank" rel="noopener">proton-native example</a></p>
+<h2 id="build-system-pre-requist"><a href="#build-system-pre-requist" class="headerlink" title="build system pre-requist"></a>build system pre-requist</h2><p>you need nodejs version 8 or newer<br>and the build system for the os<br>windows depends on the visual studio<br>linux need libgtk-3 build-essential<br>OSX need xcode-cli</p>
+<h2 id="react-native-cli"><a href="#react-native-cli" class="headerlink" title="react-native cli"></a>react-native cli</h2><p>npm install -g create-proton-app<br>create-proton-app my-app<br>cd my-app &amp;&amp; npm run-start</p>
+<p>modify the index.js to customize your app</p>
+<h2 id="package"><a href="#package" class="headerlink" title="package"></a>package</h2><p>depends on the electron-builder, we can package the app on the Linux and OSX, windows is not supported now.</p>
+<p>to build the app: npm build<br>to builde the app: npm run dist</p>
+<h2 id="manually-prepare-the-app-development"><a href="#manually-prepare-the-app-development" class="headerlink" title="manually prepare the app development"></a>manually prepare the app development</h2><p>. development bundler tools babel babel-cli babel-prepset-env babel-preset-react babel-preset-stage-0</p>
+<p>create the .babelrc:<br>{<br>    “presets”: [<br>        “env”,<br>        “statge-0”,<br>        “react”<br>    ]<br>}</p>
+<p>add the following script in the package.json</p>
+<p>“start”: “babel-node index.js”</p>
+<p>and then run the app with npm start</p>
+<h1 id="example-of-Hello-Proton"><a href="#example-of-Hello-Proton" class="headerlink" title="example of Hello-Proton"></a>example of Hello-Proton</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &#123;</span><br><span class="line">    render, App, Window</span><br><span class="line">&#125; from &apos;proton-native&apos;</span><br><span class="line"></span><br><span class="line">class Hello &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;App&gt;</span><br><span class="line">                &lt;Window title=&apos;Hello Proton&apos; </span><br><span class="line">                    size=&#123;&#123;&#123;w: 400, h: 300&#125;</span><br><span class="line">                /&gt;</span><br><span class="line">            &lt;App&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">render(&lt;Hello /&gt;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hhao99.github.io/2018/05/30/proton-native/" data-id="cjhsha8u50009nqmzkk8dkei0" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-gui-proton-react/">nodejs gui proton react</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-gui-proton-react/">nodejs gui proton react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-microservice-kotlin/">spring microservice kotlin</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/nodejs-gui-proton-react/" style="font-size: 10px;">nodejs gui proton react</a> <a href="/tags/spring-microservice-kotlin/" style="font-size: 10px;">spring microservice kotlin</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/30/proton-native/">Build the GUI with proton react-nativ</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/springboot-practice-01/">springboot-practice-01</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/learnjs/">learning the plain javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/welcome/">welcome</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Eric Hao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

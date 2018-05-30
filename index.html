@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Eric Hao&#39;s Blog on github</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Eric Hao&#39;s Blog on github">
+<meta property="og:url" content="http://hhao99.github.io/index.html">
+<meta property="og:site_name" content="Eric Hao&#39;s Blog on github">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eric Hao&#39;s Blog on github">
+  
+    <link rel="alternate" href="/atom.xml" title="Eric Hao&#39;s Blog on github" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Eric Hao&#39;s Blog on github</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hhao99.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-proton-native" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/30/proton-native/" class="article-date">
+  <time datetime="2018-05-30T02:15:01.000Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/proton-native/">Build the GUI with proton react-nativ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Create native desktop application through a react-native platform</p>
+<h1 id="background"><a href="#background" class="headerlink" title="background"></a>background</h1><p>Build the desktop applicaiton based on the node.js platform have some library we can use, the electron is the pioneer and Atom and Visual Studio Code are the good example, but the electron based application is not friendly for the mini-apps, and react-native is the good choice for the universal application interface for the web, mobile and DESKTOP.</p>
+<p>Proton-Native is the library to build the desktop application based on the react-native library and libui, can build the same GUI application to support the Windows, Linux and OSX, same code logic, same development lifecyle and deployment to different user inferface platform.</p>
+<h1 id="Get-started"><a href="#Get-started" class="headerlink" title="Get started"></a>Get started</h1><p><a href="https://proton-native.js.org" target="_blank" rel="noopener">proton-native document</a><br><a href="https://github.com/kusti8/proton-native" target="_blank" rel="noopener">proton-native github</a><br><a href="https://github.com/kusti8/progon-native/examples/" target="_blank" rel="noopener">proton-native example</a></p>
+<h2 id="build-system-pre-requist"><a href="#build-system-pre-requist" class="headerlink" title="build system pre-requist"></a>build system pre-requist</h2><p>you need nodejs version 8 or newer<br>and the build system for the os<br>windows depends on the visual studio<br>linux need libgtk-3 build-essential<br>OSX need xcode-cli</p>
+<h2 id="react-native-cli"><a href="#react-native-cli" class="headerlink" title="react-native cli"></a>react-native cli</h2><p>npm install -g create-proton-app<br>create-proton-app my-app<br>cd my-app &amp;&amp; npm run-start</p>
+<p>modify the index.js to customize your app</p>
+<h2 id="package"><a href="#package" class="headerlink" title="package"></a>package</h2><p>depends on the electron-builder, we can package the app on the Linux and OSX, windows is not supported now.</p>
+<p>to build the app: npm build<br>to builde the app: npm run dist</p>
+<h2 id="manually-prepare-the-app-development"><a href="#manually-prepare-the-app-development" class="headerlink" title="manually prepare the app development"></a>manually prepare the app development</h2><p>. development bundler tools babel babel-cli babel-prepset-env babel-preset-react babel-preset-stage-0</p>
+<p>create the .babelrc:<br>{<br>    “presets”: [<br>        “env”,<br>        “statge-0”,<br>        “react”<br>    ]<br>}</p>
+<p>add the following script in the package.json</p>
+<p>“start”: “babel-node index.js”</p>
+<p>and then run the app with npm start</p>
+<h1 id="example-of-Hello-Proton"><a href="#example-of-Hello-Proton" class="headerlink" title="example of Hello-Proton"></a>example of Hello-Proton</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &#123;</span><br><span class="line">    render, App, Window</span><br><span class="line">&#125; from &apos;proton-native&apos;</span><br><span class="line"></span><br><span class="line">class Hello &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;App&gt;</span><br><span class="line">                &lt;Window title=&apos;Hello Proton&apos; </span><br><span class="line">                    size=&#123;&#123;&#123;w: 400, h: 300&#125;</span><br><span class="line">                /&gt;</span><br><span class="line">            &lt;App&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">render(&lt;Hello /&gt;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hhao99.github.io/2018/05/30/proton-native/" data-id="cjhsha8u50009nqmzkk8dkei0" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-gui-proton-react/">nodejs gui proton react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/30/hello-world/" class="article-date">
+  <time datetime="2018-05-30T02:12:29.634Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hhao99.github.io/2018/05/30/hello-world/" data-id="cjhsh7sre0000nqmz7j6xu5av" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-practice-01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/19/springboot-practice-01/" class="article-date">
+  <time datetime="2018-03-19T05:39:40.000Z" itemprop="datePublished">2018-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/springboot-practice-01/">springboot-practice-01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Getting-startted-with-spring-boot"><a href="#Getting-startted-with-spring-boot" class="headerlink" title="Getting startted with spring boot"></a>Getting startted with spring boot</h1><p>spring boot simplified the springframework and help us to focus on the development, not the configuration and the depenpendices.<br>with the release of the spring-boot 2.0, it support the modern language kotlin, I will take the note the develop the simple micro service based timesheet application based on the 12factors design pattern and implmented in springframework.</p>
+<h1 id="timesheet-application"><a href="#timesheet-application" class="headerlink" title="timesheet application"></a>timesheet application</h1><p>in the software project, every engineer need record his work based on the time and work, timesheet applicaiton help the developer to input his work to the central timesheet database and the project manager can view the effort of the every member to be charged in his project.</p>
+<h2 id="monolithic-application-approach"><a href="#monolithic-application-approach" class="headerlink" title="monolithic application approach"></a>monolithic application approach</h2><p>in the traditional architecture design approach, we seperate the application domain to 3 differenet tiers and use the MVC design pattern to architect the application, with more than 10 years, J2EE and SSH framework is the main stream of the applicaiton development in the enterprise application architecture.<br>In this approach, the UI is build by JSP or some template engine, the business domain was moduled by the EJB or POJO with JPA to the backend, all the business logic was implemented in the same deploy module and maintained by the same dev team.</p>
+<h2 id="challendge-of-the-monlithic-application"><a href="#challendge-of-the-monlithic-application" class="headerlink" title="challendge of the monlithic application"></a>challendge of the monlithic application</h2><p>Transactional and stateful design pattern make the application is hard to scale out to support growing bussiness demand, and the availability and fault tolerent is also the shortcomming for this architecture, migrate the the cloud and adopt the modernized application architecture is hard to re-engineering this type of application.<br>And also fro the bussiness requriements aspect, we can not quickly add the feature to the existing application, the AOP can help this type of application, but modify the code and adopt the new feature to the existing model need extral effort the do the unit test and integration test, need redeploy the code the production enviornment which will stop the current transaction in the production environment.</p>
+<p>And the DevOps adoption also is the big challenge for this approach, the dev and ops team must define the clear test and deployment process, testing and delpoyment will take longer time to complete, agile development is the myth.</p>
+<h2 id="mciro-service"><a href="#mciro-service" class="headerlink" title="mciro service"></a>mciro service</h2><p>Moving to the micro service.</p>
+<p>“In short, micro service architecture style is an approach to developing a single application as a suite of small service, each running in its own process and communicate with lightweight mechanism, offer an HTTP API to represent its resources.These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.”<br>– James Lewis and Martin Fowler</p>
+<h2 id="micro-service-of-timesheet"><a href="#micro-service-of-timesheet" class="headerlink" title="micro service of timesheet"></a>micro service of timesheet</h2><p>we design the timesheet service to 3 different domain(for simplified version), employee service for the engeer details and wbs code for the charge code and time record for the timesheet record.</p>
+<p>All the services follow the micro service pattern:<br>– single reponsibility, around the business<br>– share nothing, stateless<br>– independent deploy</p>
+<h2 id="advantage-of-the-microservice"><a href="#advantage-of-the-microservice" class="headerlink" title="advantage of the microservice"></a>advantage of the microservice</h2><h3 id="Parrelle-development-model"><a href="#Parrelle-development-model" class="headerlink" title="Parrelle development model"></a>Parrelle development model</h3><p>With the implementation of the 3 different service model for the time sheet application, we can split the applicaiton to 3 different model to proritized the business module and parrelle develop the application.</p>
+<h3 id="focus-on-the-business-domain"><a href="#focus-on-the-business-domain" class="headerlink" title="focus on the business domain"></a>focus on the business domain</h3><p>with the simplifed business domain, we can focus the business domain requirement and utility the agile development methodology to quick implement the prototype and add the feature with 2-4 release cycle, more agile to support the business demands and quick delpoy to production environment.</p>
+<h3 id="high-performance-development-team"><a href="#high-performance-development-team" class="headerlink" title="high performance development team"></a>high performance development team</h3><p>with this model, only 4-6 person in one development team to communicate with each others effiently and effectively.</p>
+<h3 id="service-oriented-design-applied"><a href="#service-oriented-design-applied" class="headerlink" title="service oriented design applied"></a>service oriented design applied</h3><p>Loosely decouple, focus the internal architect and extensibility was the key success factor of the soa design pattern.</p>
+<h3 id="language-and-tools-neutral"><a href="#language-and-tools-neutral" class="headerlink" title="language and tools neutral"></a>language and tools neutral</h3><p>every team will use their tools and platform to develop and host their service, the devops model also is applied effieciently to this model.</p>
+<p>in the next module, we will discuss the microservice design method, the DDD and BDD related topic.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hhao99.github.io/2018/03/19/springboot-practice-01/" data-id="cjhsh7srt0002nqmzs3w5c4xq" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-microservice-kotlin/">spring microservice kotlin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-learnjs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/19/learnjs/" class="article-date">
+  <time datetime="2018-03-19T05:10:09.000Z" itemprop="datePublished">2018-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/learnjs/">learning the plain javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="learning-the-plain-javascript"><a href="#learning-the-plain-javascript" class="headerlink" title="learning the plain javascript"></a>learning the plain javascript</h1><p>Learning the javascript is not the easy thing, you first may start from the plain javascript, not rely on the framework or library, it is helpful to let you understand the technology used in the framework.</p>
+<p>Javascript will be many years, but libraris and framework will come and go every years.</p>
+<h1 id="Where-to-start"><a href="#Where-to-start" class="headerlink" title="Where to start?"></a>Where to start?</h1><h2 id="Start-with-HTML5"><a href="#Start-with-HTML5" class="headerlink" title="Start with HTML5"></a>Start with HTML5</h2><p>Eere is the book good for you Head first HTML5 Programming<br>It’s just begining book on the web page authoring and programming, cover the most impartant features of the HTML5, markup language, DOM, CSS and Javascript and websocket etc.</p>
+<h2 id="Work-on-the-Free-Code-Camp"><a href="#Work-on-the-Free-Code-Camp" class="headerlink" title="Work on the Free Code Camp"></a>Work on the Free Code Camp</h2><p>Free Code Camp is the good place to start the learning, not only the javascript，but also other good stuff you will be interested.</p>
+<h2 id="Avoid-the-shortcuts"><a href="#Avoid-the-shortcuts" class="headerlink" title="Avoid the shortcuts"></a>Avoid the shortcuts</h2><p>When you resolving the problem, it is eary to search the solution on the internet, and find someone can help you, but this is not helpful for you to improve your programming skills.<br>Just be honest to youself and work hard to find the right way to make it resolved.</p>
+<h1 id="next-step"><a href="#next-step" class="headerlink" title="next step"></a>next step</h1><p>Github is the good place to share the code and learn the code from others, signup and watch some useful resource, awesome javascript and awesome xxx is the good start point.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hhao99.github.io/2018/03/19/learnjs/" data-id="cjhsh7srm0001nqmz65ym7n4z" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-welcome" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/19/welcome/" class="article-date">
+  <time datetime="2018-03-19T05:06:28.000Z" itemprop="datePublished">2018-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/welcome/">welcome</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="welcome"><a href="#welcome" class="headerlink" title="welcome"></a>welcome</h1><p>Welcome to Eric Hao’s blog<br>you may reach me hhao99#gmail</p>
+<p>With more than 40 years experience, my adventure continue on the wide technology area, AI and IoT is the emerging to our life.</p>
+<p><a href="https://hhao99.github.io">github</a><br><a href="https://linkedin.com/in/haojijiu" target="_blank" rel="noopener">linkedin</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hhao99.github.io/2018/03/19/welcome/" data-id="cjhsh7srw0003nqmzpdd6hmig" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-gui-proton-react/">nodejs gui proton react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-microservice-kotlin/">spring microservice kotlin</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/nodejs-gui-proton-react/" style="font-size: 10px;">nodejs gui proton react</a> <a href="/tags/spring-microservice-kotlin/" style="font-size: 10px;">spring microservice kotlin</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/30/proton-native/">Build the GUI with proton react-nativ</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/springboot-practice-01/">springboot-practice-01</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/learnjs/">learning the plain javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/welcome/">welcome</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Eric Hao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
